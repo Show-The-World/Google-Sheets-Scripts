@@ -16,11 +16,11 @@ function  onOpen() {
   var ui = SpreadsheetApp.getUi();
   // Create a custom menu called "Open Websites"
   ui.createMenu('Open Website Details')
-      .addItem('Open Lead Info', 'openClientInfo')
+      .addItem('Open Lead Info', 'openLeadInfo')
       .addToUi();
 }
 
-function openClientInfo() {
+function openLeadInfo() {
   // Gets access to current sheet
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
   var row = sheet.getActiveRange().getRow();
