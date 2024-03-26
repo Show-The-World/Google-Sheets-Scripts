@@ -13,10 +13,14 @@ function openClientInfo() {
   // Gets the website's cell location (on the sheets). This value corresponds to the cell that was selected when initializing the function
   var websiteCell = sheet.getRange(`A${row}`).getValue(); // Assuming websites are in column A
 
+  // Estimates the businesses name based on the domain (sometime the business name won't align with the ideal business name you may want to search for)
+  var estimatedBusinessName = websiteCell.replace(/^https?:\/\/(www\.)?|\/.*$|\.[^\.]+$/g, '');
+  
   var urls = [
     websiteCell,
     `https://developers.google.com/speed/pagespeed/insights/?url=${encodeURIComponent(websiteCell)}`,
     `https://builtwith.com/?${encodeURIComponent(websiteCell)}`,
+    `https://www.google.com/search?q=${estimatedBusinessName}`,
     // ... any other URLs you need
   ];
 
