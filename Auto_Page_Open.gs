@@ -10,13 +10,11 @@ function openClientInfo() {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
   var row = sheet.getActiveRange().getRow();
   var websiteCell = sheet.getRange(`A${row}`).getValue(); // Assuming websites are in column B
-  var searchQuery = encodeURIComponent(sheet.getRange(`C${row}`).getValue()); // Assuming the brand name is in column C
-  
+
   var urls = [
     websiteCell,
     `https://developers.google.com/speed/pagespeed/insights/?url=${encodeURIComponent(websiteCell)}`,
     `https://builtwith.com/?${encodeURIComponent(websiteCell)}`,
-    `https://www.google.com/search?q=${searchQuery}`,
     // ... any other URLs you need
   ];
 
