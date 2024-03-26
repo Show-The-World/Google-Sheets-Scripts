@@ -7,9 +7,11 @@ function onOpen() {
 }
 
 function openClientInfo() {
+  // Gets access to current sheet
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
   var row = sheet.getActiveRange().getRow();
-  var websiteCell = sheet.getRange(`A${row}`).getValue(); // Assuming websites are in column B
+  // Gets the website's cell location (on the sheets). This value corresponds to the cell that was selected when initializing the function
+  var websiteCell = sheet.getRange(`A${row}`).getValue(); // Assuming websites are in column A
 
   var urls = [
     websiteCell,
